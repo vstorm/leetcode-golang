@@ -1,7 +1,6 @@
 package subsets_II
 
 import (
-	"fmt"
 	"sort"
 )
 
@@ -32,8 +31,4 @@ func backtracking(cur int, nums []int) {
 		backtracking(j + 1, nums)
 		t = t[0:len(t) - 1]
 	}
-}
-
-func main() {
-	fmt.Println(subsetsWithDup([]int{1,1}))
 }
