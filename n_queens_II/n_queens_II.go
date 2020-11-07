@@ -1,23 +1,18 @@
-package n_queens
+package n_queens_II
 
 var chessboards []int
-var results [][]string
-var w []rune
+var num int
 
-func solveNQueens(n int) [][]string {
+func totalNQueens(n int) int {
 	chessboards = make([]int, n)
-	results = make([][]string, 0)
-	w = make([]rune, n)
-	for i := range w {
-		w[i] = '.'
-	}
+	num = 0
 	putQueen(0, n)
-	return results
+	return num
 }
 
 func putQueen(i, n int) { // 按行放置
 	if i == n {
-		output()
+		num += 1
 	} else {
 		for j := 0; j < n; j += 1 {
 			chessboards[i] = j
@@ -36,14 +31,4 @@ func checkValid(i int) bool {
 		}
 	}
 	return true
-}
-
-func output() {
-	result := make([]string, 0)
-	for _, c := range chessboards {
-		w[c] = 'Q'
-		result = append(result, string(w))
-		w[c] = '.'
-	}
-	results = append(results, result)
 }
